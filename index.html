@@ -1,12 +1,96 @@
+<!-- DTD : HTML문서가 어떤 문서 형식 따라야 하는지 알려줌. -->
 <!DOCTYPE html>
-<html lang="en">
+<!-- HTML 문서의 시작과 끝을 의미하는 html 태그 -->
+<html lang="en">    
 <head>
+    <!-- 메타데이터 태그 -->
+    <!-- 문자 집합 정의 태그 -->
     <meta charset="UTF-8">
+    <!-- 익스플로러의 렌더링 엔진을 최신으로 지정 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- 화면 너비 맞추기 위해 사용 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 문서 제목 지정 -->
     <title>My First Web Page!</title>
 
 </head>
 <body>
-    <p>나의 첫번째 웹 페이지!</p>
+    <h1>제목이나 주제의 중요도 1이다. Heading level1</h1>
+    <h2>Heading level2</h2>
+    <h3>Heading level3</h3>
+    <h4>Heading level4</h4>
+    <h5>Heading level5</h5>
+    <h6>Heading level6</h6>
+
+    <p>본문에서 하나의 문단을 작성할 때는 p태그를 사용합니다.</p>
+    <p>안녕하세요<br>코딩 공부하기 좋은 날입니다. br태그는 줄바꿈 태그입니다. 시작 태그로만 써줘요.</p>
+    <blockquote cite = "https://github.com/soiyo">
+        <p>문단 단위의 인용문, cite속성으로 경로 명시</p>
+    </blockquote>
+    <q cite="https://github.com/soiyo">
+        <p>텍스트 단위의 짧은 인용문</p>
+    </q>
+    <ins>새로 추가된 텍스트</ins>
+    <del>삭제된 텍스트</del>
+    <sub>아래 첨자</sub>
+    <sup>위 첨자</sup>
+    <p>
+        공기의 원소 기호는 H<sub>2</sub>O<br>
+        4<sup>2</sup>은 16입니다.
+    </p>
+    <!-- div, p 태그는 블록요소 (사용할 때마다 줄바꿈 됨) -->
+    <!-- a, span 태그는 인라인요소 (공간이 부족할 때만 줄바꿈 됨) -->
+    <!-- div는 블록요소, 인라인 요소 그룹으로 묶을 때 사용 -->
+    <div>
+        <p>영화 소개</p>
+        <!-- span 태그는 인라인 요소를 그룹으로 묶을 때 사용 -->
+        <!-- span 태그에만 스타일 따로 적용 가능 -->
+        <p>이번 영화의 <span>하이라이트</span> 장면은 바로 여기입니다.</p>
+    </div>
+    <div>
+        <p>프로그램 소개</p>
+        <p>페이지</p>
+    </div>
+
+    <h1>판매중인 과일</h1>
+    <!-- 순서가 없는 목록 내용 -->
+    <ul>
+        <li>바나나</li>
+        <li>사과</li>
+        <li>수박</li>
+    </ul>
+
+    <h1>오늘 할 일</h1>
+    <!-- 순서가 있는 목록 내용 -->
+    <ol>
+        <li>아침 먹기</li>
+        <li>점심 먹기</li>
+        <li>저녁 먹기</li>
+    </ol>
+
+    <!-- 정의형 목록, 목록 생성시 dt태그. 설명 작성시 dd태그 -->
+    <dl>
+        <dt>용어 1</dt>
+        <dd>용어 설명 1-1</dd>
+        <dd>용어 설명 1-2</dd>
+        <dt>용어 2</dt>
+        <dd>용어 설명 2</dd>
+    </dl>
+
+    <!-- HTML 내부나 외부 링크 생성 -->
+    <a href = "https://github.com/soiyo">나의 깃허브</a>
+
+    <!-- 이미지 태그 -->
+    <img src="./whitecat.png" alt="it is a white cat">
+    
+    <!-- 이미지 링크 -->
+    <a href="https://github.com/soiyo">
+        <img src="./gitcat.png" alt="it is a git cat">
+    </a>
+
+    <!-- 텍스트 의미 강조, 웹 브라우저의 중요한 부분임을 알림 -->
+    <strong>의미 강조 + 굵게 텍스트</strong>
+    <em>의미 강조 + 기울이고 싶은 텍스트</em>
+
 </body>
 </html>
