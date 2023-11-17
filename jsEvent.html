@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+<body>
+    <div class="box-1">
+        <p class="text">text-1</p>
+        <p class="text">text-2</p>
+    </div>
+    <div class="box-2">
+        <p class="text">text-3</p>
+        <p class="text">text-4</p>
+    </div>
+
+    <h1 id = "title">title</h1>
+    <p class="text">text-1</p>
+    <p class="text">text-2</p>
+
+    <!-- a 태그와 form 태그는 기본으로 이벤트가 적용되어 있다. -->
+    <!-- a 태그는 생성된 요소를 클릭하면 다른 페이지로 이동하도록 클릭 이벤트가 연결된 상태 -->
+    <!-- form 태그는 폼 내부에서 버튼이 눌리면 전송되도록 전송 이벤트가 연결된 상태 -->
+    <!-- preventDefault() 메서드 사용시 태그에 기본으로 연결된 이벤트취소할 수 있음 -->
+
+    <!-- name 속성을 사용하면 form 속성보다 훨씬 직관적으로 form 요소 노드 선택 가능-->
+    <form name = "frm1"> 
+        <!-- form 요소에는 input, select, button 태그 등이 있음 -->
+        <!-- 이러한 폼 요소를 선택시에는 elements나 name 속성을 사용함 -->
+        <label for="uname">이름</label>
+        <input type="text" id="uname" name="uname" />
+        <br />
+    </form>
+    <!-- document.frm1.elements 으로 접근 가능 -->
+    <!-- document.frm1.elements[0] 으로도 폼 요소에 접근 가능 -->
+    <!-- document.frm1.elements["uname"] 으로도 폼 요소에 접근 가능 -->
+    <form name = "frm2"> 
+        <label for="age">나이</label>
+        <input type="text" id= "age" name="age"/>
+        <br />
+    </form>
+    <form name = "frm3"> 
+        <label for="gender">성별</label>
+        <select id ="gender" name="gender">
+            <option value="male">male</option>
+            <option value="female">female</option>
+        </select>
+        <br />
+        <button>전송</button>
+    </form>
+
+    <!-- 폼 요소는 사용자에게 값을 입력받아 이를 서버에 전달한다. -->
+    <!-- 전달 받은 값을 서버에서 활용하는 것은 백엔드 영역이지만 서버에 전달하기까지 폼 요소에 입력되 값이 유효한지는 검증할 수 있어야 한다. -->
+
+    <!-- 폼 요소의 입력값 다루기 -->
+    <!-- 한 줄 입력 요소 다루기 : 사용자가 입력한 값은 해당 요소 노드에서 value 속성을 사용해 가져오면 된다. -->
+    <form name="frm">
+        <input type="text" name="id"/>
+        <input type="password" name="pw"/>
+    </form>
+    <!-- document.frm.id.value; -->
+    <!-- document.frm.pw.value; -->
+
+    <!-- 여러 줄 입력 요소 다루기 :  -->
+    <form name = "frm4">
+        <textarea name="desc"></textarea>
+    </form>
+    <!-- input 태그와 동일하게 value를 사용해 값에 접근할 수 있다. -->
+    <!-- document.frm4.desc.value -->
+
+    <!-- 체크박스 다루기 -->
+    <label><input type="checkbox" value="apple" />사과</label>
+    <label><input type="checkbox" value="banana" />바나나</label>
+    <label><input type="checkbox" value="orange" />오렌지</label>
+    <label><input type="checkbox" value="melon" />멜론</label>
+    <!-- 체크 표시가 되어있는 값만 가져오고 싶다면 checked 속성을 사용한다. 아래 script 참조-->
+    <!-- 라디오 버튼 다루기 : type = "radio" 만 다르게 하면 위와 같다.-->
+    <!-- 콤보박스 다루기 : 위와 같다.-->
+    
+    <!-- 파일 업로드 다루기 -->
+    <!-- 핵심 : files 속성으로 반환되는 FileList 객체임 -->
+    <form name="fileform">
+        <input type="file" name="upload"/>
+    </form>
+
+
+    <!-- 이벤트 등록 -->
+    <!-- 이벤트 등록하기 : 인라인 방식 -->
+    <button onclick ="clickEvent()"> 클릭 </button>
+    <!-- 이벤트 등록하기 : 프로퍼티 리스너 방식 -->
+    <button id="clickbutton"> 클릭 </button>
+
+    <!-- 이벤트 등록하기 : 이벤트 등록 메서드 -->
+    <button id="clickbutton2">클릭</button>
+
+    <!-- 이벤트 함수 내에서 this 키워드 사용 : 이벤트가 발생한 요소 노드 바로 가리킬 수 있음 -->
+    <p>text -1</p>
+    <p>text -2</p>
+    <p>text -3</p>
+
+    <script>
+        /*메서드로 노드 선택하기*/
+        // 속성과 태그명을 전달받아 노드 선택하는 메서드 - get 메서드
+        // id 속성값이 title인 요소 노드 1개 선택
+        const el = document.getElementById("title");
+        console.log(el);
+        // class 속성값이 text인 요소 노드 모두 선택
+        const classEl = document.getElementsByClassName("text");
+        console.log(classEl);
+        // p 태그에 해당하는 요소 노드 모두 선택
+        const tagEls = document.getElementsByTagName("p");
+        console.log(tagEls);
+
+        // CSS 선택자 전달받아 노드 선택하는 메서드 - query 메서드
+        // CSS 선택자에 해당하는 노드 1개 선택
+        const el_2 = document.querySelector(".box-1");
+
+        // class 속성값이 box-1 인 요소의 하위 p 태그 가져오기 - get 메서드 활용
+        let el_3 = document.getElementsByClassName("box-1");
+        console.log(el_3);
+        el_3 = document.getElementsByClassName("box-1")[0];
+        console.log(el_3);
+        el_3 = document.getElementsByClassName("box-1")[0].children;
+        console.log(el_3);
+
+        const el_4 = document.querySelectorAll(".box-1 .text");
+        console.log(el_4);
+
+        //노드 스타일 조작하기
+        const pEl = document.querySelector("p"); //querySelector는 제일 처음 하나만 선택해줌
+        pEl.style.color = "red";
+
+        /*
+        //체크 표시 되어있는 값만 가져오기
+        var checkboxEls = document.querySelectorAll('[type="checkbox"]');
+        for (let i = 0; i< checkboxEls.length; i++){
+            if (checkboxEls[i].checked === true){
+                console.log(checkboxEls[i].value);
+            }
+        }
+        // var를 const로 하면 사파리에서 오류남. SyntaxError: Can't create duplicate variable: 'checkboxEls'
+        // https://stackoverflow.com/questions/40091136/cant-create-duplicate-variable-that-shadows-a-global-property
+        // 위 문서에 따르면, 사파리에 내장된 id 속성명과 겹쳐서 그런 것 같다는데, 따로 수정은 아직까지 안 된 상태
+        */
+        
+        //파일 업로드 다루기
+        // var filesObj = document.fileform.upload.files;
+        // console.log(filesObj);
+        // const로 변수 설정하고 또 콘솔에서 입력하면 당연히 duplicate 에러 뜸
+
+
+        // 이벤트 등록하기 : 인라인 방식
+        function clickEvent() {
+            alert("click");
+        }
+        
+        // 이벤트 등록하기 : 프로퍼티 리스너 방식
+        let btnEl = document.getElementById("clickbutton");
+        btnEl.onclick = function (){
+            alert("click");
+        }
+        
+        // 이벤트 등록하기 : 메서드로 이벤트 등록
+        let btnE2 = document.getElementById("clickbutton2");
+        btnE2.addEventListener("click", function() {
+            alert("button click");
+        });
+
+        // 모든 p태그에 click 이벤트를 연결하고 이벤트 함수 내부에서 this 키워드 콘솔창에 출력
+        // this를 이용한 토글 기능 제작 (p 태그 클릭시 검정<->빨강)
+        let pEls = document.querySelectorAll("p");
+        pEls.forEach((el)=>{
+            el.addEventListener(("click"), function () {
+                console.log(this);
+                if(el.style.color === 'red'){
+                    el.style.color = 'black';
+                } else {
+                    el.style.color ='red';
+                }
+            });
+        });
+
+        /*
+        this 사용시 조심해야 할 점
+        이벤트 함수를 화살표 함수로 쓰게 되면 this 범위가 달라져 이벤트 발생 노드를 가리키지 않게 됨.
+        */
+        pEls.forEach((el)=>{
+            el.addEventListener(("click"), (e) => {
+                //console.log(this); // this가 window 객체를 가리킴
+                console.log(e.target); //이벤트 발생 노드를 가리키는 이벤트 객체의 속성임
+            });
+        });
+
+    </script>
+</body>
+</html>

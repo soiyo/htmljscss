@@ -1,0 +1,230 @@
+/* 3. 가상 요소 선택자 사용 */
+/* HTML 문서에 명시적으로 작성된 구성 요소는 아니지만 마치 존재하는 것처럼 취급해야 한다. */
+/* p 태그 앞과 뒷부분에 content를 넣을 수 있다.*/
+/* content : CSS 속성으로 새로운 콘텐츠를 생성할 때 사용됨. content 속성으로 추가된 콘텐츠는 실제로 HTML 문서에 작성한 콘텐츠처럼 사용할 수 있다. */
+p::before{
+    content : "<before>"; 
+}
+p::after{
+    content : "<after>";
+}
+
+/* 4. 가상 클래스 선택자 사용하기 */
+/* 4.1 링크 가상 클래스 선택자 */
+/* a 태그에 발생할 수 있는 링크 상태를 이용해 선택하는 방법이다. */
+/* a 태그의 링크가 보기 안좋았는데 바꿔보자! */
+a:link{
+    color:orange;
+}
+a:visited{
+    color:green;
+}
+
+/* 4.2 동적 가상 클래스 선택자 */
+/* 사용자의 어떤 행동에 따라 동적으로 변하는 상태를 이용해 선택자를 지정하는 방법 */
+/* 
+:hover는 p태그나 div태그에 '커서를 올리면' 적용되는 것이고 
+:focus는 input태그 같은 곳에 '클릭'이 되어있으면 적용되는 것이다.
+단순히 커서만 올린다고 적용되지 않는다. */
+button:hover{
+    color:red;
+}
+button:active{
+    color : yellow;
+}
+
+/* 4.3 입력 요소 가상 클래스 선택자 */
+/* 입력 요소의 특정 상태를 이용해 선택자로 지정하는 방법 */
+/* :focus, :checked, :disabled, :enabled  */
+/* :focus
+입력 요소에 커서가 활성화되면 스타일을 적용
+:checked
+체크 박스가 표시되어 있으면 스타일을 적용
+:disabled
+상호작용 요소가 비활성화 되어 있으면 스타일을 적용
+:enabled
+:disabled와 반대로 상호작용 요소가 활성화되어 있으면 스타일을 적용 */
+
+/* 4.4 구조적 가상 클래스 선택자 */
+/* HTML 태그의 사용 위치, 다른 태그와의 관계에 따라 요소를 선택하는 방법 */
+/* 책 참조 */
+
+/* css에는 상속이 존재한다. div로 스타일 설정시 div내부 태그까지 적용되는 경우 발생 주의*/
+
+/* css속성에는 다양한 단위 값 사용이 가능한데, 절대단위와 상대단위로 나뉜다. */
+/* 절대단위 : 어떤 환경이라도 동일한 크기로 보이는 단위, px */
+/* 상대단위 : 부모 요소, 웹 브라우저의 창 크기에 따라 상대적으로 결정, %, em, rem, vw, vh */
+
+/* 색상 표기법 : 키워드 표기법  color: red, color: blue , RGB색상표기법 rgb(red, green, blue), rgba(red, green, blue, alpha), HEX 표기법 #RRGGBB*/
+
+/* 텍스트 속성으로 텍스트 꾸미기
+font-family는 글꼴이고 ,로 구분하여 1개 이상의 글꼴 나열해 지정, 글꼴1 없다면 2로 적용된다는 뜻
+font-size는 텍스트 크기이고 단위를 포함한 크기를 넣음 
+font-weight는 텍스트 굵기이고 속성값으로는 숫자, 키워드 표기법 사용 가능
+
+숫자 표기법 : 100~900 사이의 단위를 100단위로 표시
+키워드 표기법 : lighter(부모 요소보다 얆음), normal, bold, bolder(부모 요소보다 굵음)
+lighter, bolder는 상대적이므로 normal, bold를 가장 많이 사용
+
+font-style : 글꼴 스타일 지정 (하나의 글꼴만 지정), 
+normal(기본), italic(이탤릭), oblique(기울임)
+
+font-variant : 영문 텍스트를 크기가 작은 대문자로 변경
+
+color : 텍스트 색 지정
+
+text-align : 텍스트 정렬
+left, center, right, justify(양쪽)
+
+text-decoration : 텍스트 꾸며주기 위해 사용 (텍스트에 선 긋는것)
+
+● 텍스트 장식을 모두 지우고 싶다면? none
+● 텍스트 중간에 선을 긋고 싶다면? line-through
+● 텍스트 위에 선을 긋고 싶다면? overline
+● 텍스트 밑줄을 긋고 싶다면? underline
+
+a 태그, 즉 하이퍼링크에 밑줄 없앨 때 text-decoration 속성 중에 none을 사용
+
+letter-spacing : 자간 조절, normal 또는 크기넣음
+line-height : 텍스트 한 줄의 높이지정에 사용
+*/
+
+/* 3. 박스 모델 구성하는 속성 다루기 */
+/* margin : 가장 외부 여백*/
+/* border : margin 보다 안의 여백, 요소의 테두리(경계선) 담당*/
+/* padding : border의 안 여백, 요소의 내부 여백*/
+
+/* width, height : content 영역의 너비, 높이 */
+/* box-sizing 꼭 실습해보기! */
+
+/* 블록 : 요소 너비가 콘텐츠 유무와 상관없이 항상 가로 한줄 다 차지 */
+/* 인라인 : 요소 너비를 콘텐츠 크기만큼 차지 */
+/* 블록, 인라인 전환시 display로 변경함. 속성값은 block, inline, inline-block */
+
+/* 4. 배경 속성으로 요소의 배경 설정 */
+/* background-color 혹은 background: 배경 색상 넣기, 색상값을 속성값으로 사용*/
+
+/* background-image : 속성에 삽입할 이미지 경로 넣을 수 있음 */
+/* background-image : url("이미지 경로") */
+
+/* background-repeat : 배경 크기가 삽입하려는 이미지보다 크면 이미지 자동반복해 채움 */
+/* 이미지 반복 설정 바꿀때 쓰임
+● no-repeat 속성은 이미지를 반복하지 않음 (default 값)
+● repeat-x 속성은 이미지를 가로 방향으로 반복
+● repeat-y 속성은 이미지를 세로 방향으로 반복
+*/
+
+/* background-size : 요소의 배경 크기가 이미지보다 작을 때 이미지 잘리는거 해결 */
+/* background-size: auto|cover|contain|<너비 높이>; */
+
+/* background-position : 삽입하려는 이미지의 위치 결정 가능 */
+/* background-position: <x위치> <y위치>; */
+
+/* background-attachment :  요소에 삽입된 이미지를 스크롤할 때, 이미지의 작동 방식을 결정 */
+
+/* 
+<style> div {
+    background-color: red;
+    background-image: url("이미지 링크");
+    background-repeat: no-repeat;
+    background-size: center;
+    background-attachment: fixed;
+} </style> */
+
+/* 5.위치 속성으로 HTML 요소 배치하기 */
+/* position 속성 */
+/* HTML 요소를 기본 흐름에서 벗어나 좌푯값에 따라 배치할 때 사용 */
+/* 
+- relative
+좌표 속성에 따라 배치할 수 있는 속성
+- absolute
+relative와 마찬가지로 요소가 기본 흐름에서 벗어나 좌표 속성에 따라 배치됨
+다만 기준점이 다른데, relative일 때는 기준점이 요소의 왼쪽 위 모서리지만, 
+absolute일 때는 웹 브라우저의 왼쪽 위 모서리임.
+- fixed
+해당 요소가 지정된 위치에 고정되는 속성
+- sticky
+스크롤하는 중에 일정 지점이 되면 요소가 fixed 값처럼 작동하는 것
+- z-index
+position 속성으로 배치한 요소의 z축 위치를 결정할 수 있음
+*/
+
+/* float 속성 */
+/* 
+현재는 float 속성이 잘 쓰이지 않고 flex나 grid가 많이 쓰인다.
+*/
+
+/* clear 속성 */
+/* clear 속성은 float 속성을 해제할 때 사용하는 속성 */
+/* float 속성에서 문제가 발생하는 원인은 float 속성이 대상 요소의 다음 요소에 영향을 주기 때문 */
+/* 이 속성도 현재 float가 잘 쓰이지 않으니 잘 쓰이지 않음 */
+
+/* 6. 전환 효과 속성 적용하기 */
+/* 전환 : CSS에서 한 요소에 적용된 스타일 속성값을 다른 속성값으로 변하게 하는 것 */
+
+/* 
+transition-property 속성은 전환 효과를 적용할 대상 속성을 지정
+transition-duration 속성은 전환 효과의 지속 시간을 설정하는 데 사용 (초 단위 값사용 ex: 1s)
+transition-delay 속성을 사용하면 전환 효과의 발생을 지연 (지연하고 싶은 시간)
+transition-timing-function 속성은 전환 효과의 진행 속도를 지정
+*/
+/*
+transition-property: width;
+transition-duration: 1s;
+transition-timing-function: ease-in;
+transition-delay: 1s;
+*/
+
+/* 한번에 작성 가능 */
+/* transition: width, 1s, ease-in, 1s; */
+
+/* 7. 애니메이션 속성으로 전환 효과 제어 */
+
+/* 7.1 키 프레임 정의 */
+/* 애니메이션은 정지된 이미지를 연속적으로 보여줘서 움직이는 것처럼 보이게함 */
+/* 애니메이션 속성은 이런 애니메이션 효과를 전환 효과에 부여함. 그래서 키 프레임 @keyframes를 정의한 후 실행해야함 */
+
+/* 한 번에 지정하기 */
+/*
+@keyframes <키 프레임명> { 
+    0% { CSS 코드 } 
+    n% { CSS 코드 }
+    100%{ CSS 코드 } 
+}
+*/
+
+/* animation-name 속성은 특정 요소에서 적용할 키 프레임명을 지정 */
+/* animation-duration 속성은 애니메이션을 지속할 시간을 설정 (s, ms) */
+/* animation-delay 속성을 사용하면 애니메이션 실행을 지연 (s, ms)*/
+/* animation-fill-mode 애니메이션이 끝나도 원래 상태로 돌아가지 않고 애니메이션이 종료된 시점의 상태를 유지 */
+/* animation-iteration-count 애니메이션은 기본으로 1회 실행하고 종료됩니다. 이때 animation-iteration-count 속성을 사용하면 실행 횟수를 조절 가능 (무한 : infinite) */
+/* animation-play-state 속성은 애니메이션의 재생 상태를 지정 */
+/* animation-direction 속성은 애니메이션의 진행 방향을 지정 */
+
+/* 한 버에 지정하기 */
+/* animation: bgchange 5s 3 ease-in; */
+/* bgchange 키 프레임에 정의된 속성을 ease-in 속도로 3회 실행한다 */
+
+/* 8. 변형 효과 */
+/* transform : 요소에 특정 변형 효과 지정 가능 */
+/* translate, scale, skew, rotate  */
+
+
+/* 9. 웹 폰트, 아이콘 사용 */
+/* 구글 웹폰트 접속 -> 원하는 폰트 선택 -> link 를 html <head>부분에 추가 */
+p{
+    font-family: 'Montserrat', sans-serif;
+}
+.regular{
+    font-weight: 100;
+}
+.medium{
+
+    font-weight: 300;
+}
+.bold{
+
+    font-weight: 600;
+}
+
+/* 아이콘 폰트 적용 */

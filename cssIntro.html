@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color:#7addd5;
+        }
+    </style>
+    <!-- 가장 마지막 줄에 선언된 것으로 css는 덮임 -->
+    <link rel="stylesheet" href="css/intro.css"/>
+</head>
+<body>
+    <h1 style="color : red; font-size:24px">내부 스타일 시트</h1>
+    <h1> 외부 스타일 시트 </h1>
+    <p> 전체 스타일 시트 </p>
+    <p id="idcss"> id 속성값을 이용해 선택자 지정 </p>
+    <!-- class 속성은 id 속성과 다르게 중복되는 스타일 사용 가능함 -->
+    <p class="classcss"> class 속성값을 이용해 선택자 지정 </p>
+    <a href="#">기본 a 태그</a>
+    <a href="#" target="_blank">새 창으로 열리는 a태그</a>
+
+    <!-- 그룹 선택자 적용 -->
+    <p id="idcss2">id css2</p>
+    <h2>h2</h2>
+    <p class="red">class red</p>
+
+    <!-- 자식 선택자 -->
+    <div class="box">
+        <p>안녕하세-1</p>
+    </div>
+    <p>안녕하세요0</p>
+
+    <!-- 하위 선택자 -->
+    <div>
+        <p>안녕하세요 1</p>
+        <ul>
+            <li>
+                <p>안녕하세요 2</p>
+            </li>
+        </ul>
+    </div>
+    <p>안녕하세요 3</p>
+
+    <!-- 인접 형제 선택자 -->
+    <h1>안녕하세요</h1>
+    <h2>인접 O</h2>
+    <h2>인접 X</h2>
+
+    <!-- 일반 형제 선택자 -->
+
+</body>
+</html>

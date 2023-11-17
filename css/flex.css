@@ -1,0 +1,16 @@
+/* flex 박스로 1차원 레이아웃 설계 */
+/* display: flex; */
+/* flex-direction, flex-wrap, flex-flow, justify-content, align-items, align-content, align-self */
+
+/* 그리드 레이아웃으로 2차원 레이아웃 설계 */
+/* grid란 웹 페이지에서 2차원 방식으로 레이아웃을 설계할 수 있도록 고안된 스타일 속성 */
+/* 그리드 레이아웃의 핵심은 행과 열입니다. HTML에서 표를 만들 때 행과 열을 생각하면 이해하기 쉽습니다. grid는 다음과 같이 display로 적용할 수 있습니다. */
+/* display: grid */
+
+/* grid-template-columns, grid-template-rows, row-gap, column-gap, align-items, align-self, justify-items, justify-self */
+
+/* 반응형 웹을 위한 미디어 쿼리*/
+/* 사이트에 접속하는 미디어 타입과 특징, 해상도에 따라 다른 스타일 속성을 적용하게 하는 기술 */
+
+/* 뷰포트는 웹 페이지가 접속한 기기에서 보이는 실제 영역의 크기 */
+/*  */
